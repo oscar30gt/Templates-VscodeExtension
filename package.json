@@ -1,0 +1,92 @@
+{
+	"name": "templates",
+	"displayName": "Templates",
+	"description": "Templates allow you to customize the initial content of the files you create in your workspace based in its extensions. You can also set struct snippets",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.94.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Snippets"
+	],
+	"activationEvents": [
+		"workspaceContains:**"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "FileTemplates.loadTemplate",
+				"title": "Templates: Paste Snippet Template"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Templates Preferences",
+			"properties": {
+				"templates.snippetTemplates": {
+					"type": "array",
+					"default": [],
+					"description": "List of text templates",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"description": "Snippet identifier"
+							},
+							"templateFile": {
+								"type": "string",
+								"description": "File with the snippet"
+							}
+						},
+						"required": [
+							"name",
+							"templateFile"
+						]
+					}
+				},
+				"templates.initialContentTemplates": {
+					"type": "array",
+					"default": [],
+					"description": "List of text templates",
+					"items": {
+						"type": "object",
+						"properties": {
+							"templateFile": {
+								"type": "string",
+								"description": "File with the snippet"
+							},
+							"fileExtensions": {
+								"type": "array",
+								"description": "Will the existing content be removed from the file?",
+								"default": [],
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"required": [
+							"fileExtensions",
+							"templateFile"
+						]
+					}
+				}
+			}
+		},
+		"scripts": {
+			"lint": "eslint .",
+			"pretest": "npm run lint",
+			"test": "vscode-test"
+		},
+		"devDependencies": {
+			"@types/vscode": "^1.94.0",
+			"@types/mocha": "^10.0.9",
+			"@types/node": "20.x",
+			"eslint": "^9.13.0",
+			"@vscode/test-cli": "^0.0.10",
+			"@vscode/test-electron": "^2.4.1"
+		}
+	}
+}
