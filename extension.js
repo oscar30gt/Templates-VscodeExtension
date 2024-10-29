@@ -50,11 +50,13 @@ function registerEvents(ctx) {
 
 // Gets a configuration for the current file type
 async function findTemplateForFile(fileExt) {
+	if (fileExt === "")
+		return null;
+	
 	const config = vscode.workspace.getConfiguration('templates');
 	const templates = config.get('initialContentTemplates', []);
 
-	return templates.find(t => t.fileExtensions.includes(fileExt) ||
-		('.' + t.fileExtensions).includes(fileExt));
+	return templates.find(t => t.fileExtensions.includes(fileExt));
 }
 
 // Pastes the content of a template in the created file
@@ -73,8 +75,8 @@ async function writeTemplateContentToFile(templateFilePath, targetFilePath) {
 
 // Removes the template placeholders with actual info
 function replacePlaceholders(text, info) {
-	text = text.replace("[FILENAME]", info.fileName);
-	text = text.replace("[FILENAMENOEXTENSION]", info.fileNameNoExtension);
+	text = text.replaceAll("[FILENAME]", info.fileName);
+	text = text.replaceAll("[FILENAMENOEXTENSION]", info.fileNameNoExtension);
 	
 	return text;
 }

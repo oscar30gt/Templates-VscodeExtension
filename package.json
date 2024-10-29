@@ -2,7 +2,8 @@
 	"name": "templates",
 	"displayName": "Templates",
 	"description": "Templates allow you to customize the initial content of the files you create in your workspace based in its extensions. You can also set struct snippets",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"repository": {"url": "https://github.com/oscar30gt/Templates-VscodeExtension"},
 	"engines": {
 		"vscode": "^1.94.0"
 	},
@@ -88,5 +89,9 @@
 			"@vscode/test-cli": "^0.0.10",
 			"@vscode/test-electron": "^2.4.1"
 		}
+	},
+	"dependencies": {
+		"node": "^23.1.0",
+		"vsce": "^2.15.0"
 	}
 }
