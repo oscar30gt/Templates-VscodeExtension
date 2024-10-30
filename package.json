@@ -1,9 +1,12 @@
 {
-	"name": "templates",
-	"displayName": "Templates",
-	"description": "Templates allow you to customize the initial content of the files you create in your workspace based in its extensions. You can also set struct snippets",
-	"version": "1.0.0",
+	"name": "quick-start-templates",
+	"displayName": "Quick Start Templates",
+	"description": "Quick Start allow developers to customize the initial content of the files you create in your workspace based in its extensions. You can also set custom snippets",
+	"version": "1.0.1",
 	"repository": {"url": "https://github.com/oscar30gt/Templates-VscodeExtension"},
+	"author": {"name": "Oscargt"},
+	"publisher": "Oscargt",
+	"icon": "./icon128x128.png",
 	"engines": {
 		"vscode": "^1.94.0"
 	},
@@ -19,14 +22,14 @@
 		"commands": [
 			{
 				"command": "FileTemplates.loadTemplate",
-				"title": "Templates: Paste Snippet Template"
+				"title": "QuickStart: Paste Snippet Template"
 			}
 		],
 		"configuration": {
 			"type": "object",
 			"title": "Templates Preferences",
 			"properties": {
-				"templates.snippetTemplates": {
+				"quickStart.snippetTemplates": {
 					"type": "array",
 					"default": [],
 					"description": "List of text templates",
@@ -48,7 +51,7 @@
 						]
 					}
 				},
-				"templates.initialContentTemplates": {
+				"quickStart.initialContentTemplates": {
 					"type": "array",
 					"default": [],
 					"description": "List of text templates",

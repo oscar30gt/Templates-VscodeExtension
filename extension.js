@@ -25,6 +25,8 @@ module.exports = {
 	deactivate
 };
 
+const CONFIG_NAMESPACE = "quickStart";
+
 ///////////////////////////////////////////////////////
 ////////////// INITIAL CONTENT TEMPLATES //////////////
 ///////////////////////////////////////////////////////
@@ -52,8 +54,8 @@ function registerEvents(ctx) {
 async function findTemplateForFile(fileExt) {
 	if (fileExt === "")
 		return null;
-	
-	const config = vscode.workspace.getConfiguration('templates');
+
+	const config = vscode.workspace.getConfiguration(CONFIG_NAMESPACE);
 	const templates = config.get('initialContentTemplates', []);
 
 	return templates.find(t => t.fileExtensions.includes(fileExt));
@@ -63,9 +65,9 @@ async function findTemplateForFile(fileExt) {
 async function writeTemplateContentToFile(templateFilePath, targetFilePath) {
 	const fileName = path.basename(targetFilePath);
 	const fileNameNoExtension = removeAfterLastDot(fileName);
-	
+
 	let templateContent = await getFileContent(templateFilePath);
-	templateContent = replacePlaceholders(templateContent, { 
+	templateContent = replacePlaceholders(templateContent, {
 		fileName: fileName,
 		fileNameNoExtension: fileNameNoExtension
 	});
@@ -77,7 +79,7 @@ async function writeTemplateContentToFile(templateFilePath, targetFilePath) {
 function replacePlaceholders(text, info) {
 	text = text.replaceAll("[FILENAME]", info.fileName);
 	text = text.replaceAll("[FILENAMENOEXTENSION]", info.fileNameNoExtension);
-	
+
 	return text;
 }
 
@@ -96,7 +98,7 @@ function registerCommands(ctx) {
 
 // Shows a quick input widget to allow the user to select the template to paste
 async function showTemplatePicker() {
-	const config = vscode.workspace.getConfiguration('templates');
+	const config = vscode.workspace.getConfiguration(CONFIG_NAMESPACE);
 	const templates = config.get('snippetTemplates', []);
 
 	const options = templates.map(template => ({
