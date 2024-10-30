@@ -1,6 +1,6 @@
 # Templates README
 
-Easily customize the initial content of new files created in your workspace. Store reusable snippets, including component structures and comment templates, and quickly insert them into your code using simple commands.
+Save file templates and load them when creating new files
 
 ## Features
 
@@ -13,8 +13,8 @@ Easily customize the initial content of new files created in your workspace. Sto
 
 ## Extension Settings
 
-* `quickStart.initialContentTemplates`: Sets the initial content of the files.
-* `quickStart.snippetTemplates`: Snippets you can paste by commands.
+* `fileTemplates.initialContentTemplates`: Sets the initial content of the files.
+* `fileTemplates.snippetTemplates`: Snippets you can paste by commands.
 
 ## Issues
 This is an initial release. Any report or suggestion means a lot. Send them by [mail](mailto:oscar30dev@gmail.com) or as a [GitHub issue](https://github.com/oscar30gt/Templates-VscodeExtension/issues/new)!

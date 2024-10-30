@@ -25,7 +25,7 @@ module.exports = {
 	deactivate
 };
 
-const CONFIG_NAMESPACE = "quickStart";
+const CONFIG_NAMESPACE = "codeTemplates";
 
 ///////////////////////////////////////////////////////
 ////////////// INITIAL CONTENT TEMPLATES //////////////
