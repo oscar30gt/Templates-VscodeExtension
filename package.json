@@ -2,7 +2,7 @@
 	"name": "quick-start-templates",
 	"displayName": "Code Templates",
 	"description": "Code Templates allow developers to customize the initial content of the files you create in your workspace based in its extensions. You can also set custom snippets",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"repository": {
 		"url": "https://github.com/oscar30gt/Templates-VscodeExtension"
 	},
