@@ -3,8 +3,12 @@
 	"displayName": "Code Templates",
 	"description": "Code Templates allow developers to customize the initial content of the files you create in your workspace based in its extensions. You can also set custom snippets",
 	"version": "1.0.4",
-	"repository": {"url": "https://github.com/oscar30gt/Templates-VscodeExtension"},
-	"author": {"name": "Oscargt"},
+	"repository": {
+		"url": "https://github.com/oscar30gt/Templates-VscodeExtension"
+	},
+	"author": {
+		"name": "Oscargt"
+	},
 	"publisher": "Oscargt",
 	"icon": "./icon128x128.png",
 	"engines": {
@@ -93,5 +97,9 @@
 			"@vscode/test-electron": "^2.4.1",
 			"vsce": "^2.15.0"
 		}
+	},
+	"dependencies": {
+		"@vscode/vsce": "^3.3.2",
+		"vsce": "^2.15.0"
 	}
 }
